@@ -1,0 +1,20 @@
+<app-table-pagesize-selector
+  [pageSizes]="pageSizes"
+  [(limit)]="limit"
+  [loading]="loading"
+  (limitChange)="limitChanged()"
+></app-table-pagesize-selector>
+
+<app-table-content [items]="items" [columns]="columns"></app-table-content>
+
+<div class="error" *ngIf="error">
+  {{error.message}}
+</div>
+
+<app-table-paginator
+  [offset]="offset"
+  [limit]="limit"
+  [total]="total"
+  (next)="loadNext()"
+  (prev)="loadPrev()"
+></app-table-paginator>

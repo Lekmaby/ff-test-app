@@ -1,0 +1,18 @@
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{col.title}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items">
+      <td *ngFor="let col of columns">
+        <div [class]="col.classes">
+          {{item[col.field]}}
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

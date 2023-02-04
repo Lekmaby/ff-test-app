@@ -1,0 +1,21 @@
+<div class="paginator">
+  <button
+    class="paginator-button left"
+    [disabled]="!canPrev"
+    (click)="prevAction()"
+  >
+    Назад
+  </button>
+
+  <button
+    class="paginator-button right"
+    [disabled]="!canNext"
+    (click)="nextAction()"
+  >
+    Вперед
+  </button>
+
+  <small class="page-info" *ngIf="totalPages">
+    Страница {{page}} из {{totalPages}}
+  </small>
+</div>

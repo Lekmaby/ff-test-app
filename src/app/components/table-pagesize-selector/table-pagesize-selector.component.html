@@ -1,0 +1,13 @@
+<div class="toolbar">
+  <div class="loader-wrapper">
+    <div *ngIf="loading" class="loader"></div>
+  </div>
+  <div  class="selector-wrapper">
+    <div>Выводить по</div>
+    <div>
+      <select class="selector" [(ngModel)]="limit" (ngModelChange)="change()">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">{{size}}</option>
+      </select>
+    </div>
+  </div>
+</div>

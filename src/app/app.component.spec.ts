@@ -1,6 +1,10 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {Component} from "@angular/core";
+
+@Component({selector: 'app-table', template: ''})
+class TableComponent{}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +13,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TableComponent
       ],
     }).compileComponents();
   });
@@ -20,16 +25,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ff-test-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ff-test-app');
-  });
-
-  it('should render title', () => {
+  it('should have div with class app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ff-test-app app is running!');
+    expect(compiled.querySelector('div.app')).toBeTruthy();
   });
 });
